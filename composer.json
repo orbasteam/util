@@ -1,0 +1,29 @@
+{
+    "name": "orbas/util",
+    "description": "a library for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "IvanWu",
+            "email": "flash662@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Orbas\\Util\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "~5.7",
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "laravel/framework": "5.4.*",
+        "graham-campbell/testbench": "^3.4"
+    }
+}

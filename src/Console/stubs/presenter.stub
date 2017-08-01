@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use Orbas\Util\Presenter;
+
+class DummyClass extends Presenter
+{
+    
+}

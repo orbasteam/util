@@ -1,0 +1,17 @@
+<?php
+
+namespace DummyNamespace;
+
+use Orbas\Util\Enum\Enumable;
+
+class DummyClass implements Enumable
+{
+    /**
+     *
+     * @return array
+     */
+    public function create()
+    {
+        return [];
+    }
+}
