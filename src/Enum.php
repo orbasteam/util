@@ -58,13 +58,13 @@ class Enum
         if (!$this->enumExists($name)) {
             $this->enums[$name] = $this->buildClass($name);
         }
-        
+
         return $this->enums[$name];
     }
 
     /**
      * determine if enum class exists.
-     * 
+     *
      * @param string $className
      *
      * @return bool
@@ -76,10 +76,11 @@ class Enum
 
     /**
      * Build a Enum class.
-     * 
+     *
      * @param string $name
      *
      * @throws RuntimeException
+     *
      * @return Enumable
      */
     protected function buildClass($name)
@@ -94,12 +95,13 @@ class Enum
         if (!$enum instanceof Enumable) {
             throw new RuntimeException('Enum '.$className.' is not instance of '.Enumable::class);
         }
-        
+
         return $enum;
     }
 
     protected function formatClassName($name)
     {
-        return $this->namespace . '\\' . studly_case($name);
+        return $this->namespace.'\\'.studly_case($name);
     }
+
 }

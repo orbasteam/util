@@ -22,7 +22,7 @@ abstract class Presenter
     }
 
     /**
-     * get entity. 
+     * get entity.
      * 
      * @param string $name
      *
@@ -43,7 +43,7 @@ abstract class Presenter
         if (method_exists($this, $name)) {
             return $this->$name();
         }
-        
+
         if ($this->attribute($name) !== null) {
             return $this->__($name);
         }
@@ -60,7 +60,8 @@ abstract class Presenter
     {
         $value = app('enum')->value($this->attribute($name), $name);
         $key = ['enums', $name, $value];
-        
+
         return __(implode('.', $key));
     }
+
 }

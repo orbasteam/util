@@ -32,4 +32,5 @@ class ServiceProvider extends Provider
     {
         $this->commands([EnumMakeCommand::class, PresenterMakeCommand::class]);
     }
+
 }

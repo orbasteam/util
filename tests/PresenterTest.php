@@ -43,4 +43,5 @@ class PresenterTest extends UtilTestCase
 
         $this->assertEquals('男', $this->user->present('gender'));
     }
+
 }

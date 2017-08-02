@@ -12,4 +12,5 @@ class Gender implements Enumable
     {
         return ['female', 'male'];
     }
+
 }

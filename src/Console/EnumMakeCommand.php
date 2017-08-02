@@ -26,7 +26,7 @@ class EnumMakeCommand extends GeneratorCommand
      * @var string
      */
     protected $type = 'Enum';
-    
+
     /**
      * Get the stub file for the generator.
      *

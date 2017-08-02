@@ -10,7 +10,7 @@ class EnumTest extends UtilTestCase
     {
         return new Enum('Tests\\Stubs\\Enum');
     }
-    
+
     /**
      * @test
      * @group Enum
@@ -30,4 +30,5 @@ class EnumTest extends UtilTestCase
     {
         $this->assertEquals('male', $this->enum()->value(1, 'gender'));
     }
+
 }

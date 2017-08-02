@@ -10,4 +10,5 @@ class UserPresenter extends Presenter
     {
         return $this->attribute('firstName').' '.$this->attribute('lastName');
     }
+
 }

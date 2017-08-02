@@ -7,12 +7,12 @@ trait Presenter
      * @var \Orbas\Util\Presenter
      */
     protected $presenterInstance;
-    
+
     /**
      * get presenter class name
-     * override this method if your presenter name is different 
+     * override this method if your presenter name is different
      * than model class name.
-     * 
+     *
      * @return string
      */
     protected function getPresenter()
@@ -38,4 +38,5 @@ trait Presenter
 
         return $this->presenterInstance;
     }
+
 }
