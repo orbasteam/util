@@ -23,7 +23,7 @@ abstract class Presenter
 
     /**
      * get entity.
-     * 
+     *
      * @param string $name
      *
      * @return mixed
@@ -63,5 +63,4 @@ abstract class Presenter
 
         return __(implode('.', $key));
     }
-
 }

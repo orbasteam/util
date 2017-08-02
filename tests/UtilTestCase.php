@@ -35,5 +35,4 @@ class UtilTestCase extends AbstractPackageTestCase
         parent::tearDown();
         $this->tearDownMockery();
     }
-
 }

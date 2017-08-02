@@ -103,5 +103,4 @@ class Enum
     {
         return $this->namespace.'\\'.studly_case($name);
     }
-
 }

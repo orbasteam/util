@@ -30,5 +30,4 @@ class EnumTest extends UtilTestCase
     {
         $this->assertEquals('male', $this->enum()->value(1, 'gender'));
     }
-
 }

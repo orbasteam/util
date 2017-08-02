@@ -26,7 +26,7 @@ class PresenterMakeCommand extends GeneratorCommand
      * @var string
      */
     protected $type = 'Presenter';
-    
+
     /**
      * Get the stub file for the generator.
      *
