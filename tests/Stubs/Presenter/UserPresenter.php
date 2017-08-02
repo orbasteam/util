@@ -8,6 +8,6 @@ class UserPresenter extends Presenter
 {
     public function fullName()
     {
-        return $this->attribute('firstName') . ' ' . $this->attribute('lastName');
+        return $this->attribute('firstName').' '.$this->attribute('lastName');
     }
 }

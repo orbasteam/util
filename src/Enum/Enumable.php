@@ -1,4 +1,5 @@
 <?php
+
 namespace Orbas\Util\Enum;
 
 interface Enumable

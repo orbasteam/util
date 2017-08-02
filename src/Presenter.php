@@ -22,7 +22,7 @@ abstract class Presenter
     }
 
     /**
-     * get entity 
+     * get entity. 
      * 
      * @param string $name
      *
@@ -50,7 +50,7 @@ abstract class Presenter
     }
 
     /**
-     * translate model enum name
+     * translate model enum name.
      *
      * @param string $name
      *
@@ -59,7 +59,8 @@ abstract class Presenter
     public function __($name)
     {
         $value = app('enum')->value($this->attribute($name), $name);
-        $key   = ['enums', $name, $value];
+        $key = ['enums', $name, $value];
+        
         return __(implode('.', $key));
     }
 }

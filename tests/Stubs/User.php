@@ -1,8 +1,8 @@
 <?php
+
 namespace Tests\Stubs;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Orbas\Util\Traits\Presenter;
 use Tests\Stubs\Presenter\UserPresenter;
 
@@ -14,7 +14,7 @@ class User extends Model
     {
         return UserPresenter::class;
     }
-    
+
     public function getFirstNameAttribute()
     {
         return 'ivan';

@@ -34,11 +34,11 @@ class PresenterMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/stubs/presenter.stub';
+        return __DIR__.'/stubs/presenter.stub';
     }
 
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Presenters';
+        return $rootNamespace.'\Presenters';
     }
 }

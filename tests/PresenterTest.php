@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests;
 
 use Illuminate\Translation\Translator;
@@ -11,11 +12,11 @@ class PresenterTest extends UtilTestCase
      * @var User
      */
     protected $user;
-    
+
     public function setUp()
     {
         parent::setUp();
-        
+
         $this->user = new User();
     }
 
@@ -36,10 +37,10 @@ class PresenterTest extends UtilTestCase
     {
         $enum = new Enum('Tests\\Stubs\\Enum');
         $this->app->instance('enum', $enum);
-        
+
         $translator = $this->initMock(Translator::class, 'translator');
         $translator->shouldReceive('getFromJson')->once()->andReturn('男');
-        
+
         $this->assertEquals('男', $this->user->present('gender'));
     }
 }

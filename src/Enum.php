@@ -28,7 +28,6 @@ class Enum
     }
 
     /**
-     *
      * @param $name
      *
      * @return Collection
@@ -39,7 +38,8 @@ class Enum
     }
 
     /**
-     * @param mixed  $key
+     * @param string $key
+     * @param mixed  $name
      *
      * @return mixed
      */
@@ -49,7 +49,6 @@ class Enum
     }
 
     /**
-     *
      * @param $name
      *
      * @return Enumable
@@ -64,15 +63,7 @@ class Enum
     }
 
     /**
-     * Format enum class name
-     * 
-     * @param string $name
-     *
-     * @return string
-     */
-
-    /**
-     * determine if enum class exists
+     * determine if enum class exists.
      * 
      * @param string $className
      *
@@ -84,24 +75,24 @@ class Enum
     }
 
     /**
-     * Build a Enum class
+     * Build a Enum class.
      * 
      * @param string $name
      *
-     * @return Enumable
      * @throws RuntimeException
+     * @return Enumable
      */
     protected function buildClass($name)
     {
         $className = $this->formatClassName($name);
-        
+
         if (!class_exists($className)) {
-            throw new RuntimeException('Enum ' . $className . ' is not exists');
+            throw new RuntimeException('Enum '.$className.' is not exists');
         }
 
         $enum = new $className();
         if (!$enum instanceof Enumable) {
-            throw new RuntimeException('Enum ' . $className . ' is not instance of ' . Enumable::class);
+            throw new RuntimeException('Enum '.$className.' is not instance of '.Enumable::class);
         }
         
         return $enum;

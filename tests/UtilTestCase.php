@@ -3,8 +3,8 @@
 namespace Tests;
 
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
-use Orbas\Util\ServiceProvider;
 use Mockery;
+use Orbas\Util\ServiceProvider;
 
 class UtilTestCase extends AbstractPackageTestCase
 {
