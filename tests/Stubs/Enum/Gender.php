@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Stubs\Enum;
 
 use Orbas\Util\Enum\Enumable;

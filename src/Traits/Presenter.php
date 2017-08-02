@@ -1,4 +1,5 @@
 <?php
+
 namespace Orbas\Util\Traits;
 
 trait Presenter
@@ -38,5 +39,4 @@ trait Presenter
 
         return $this->presenterInstance;
     }
-
 }
