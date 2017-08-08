@@ -39,7 +39,8 @@ class PresenterTest extends UtilTestCase
         $this->app->instance('enum', $enum);
 
         $translator = $this->initMock(Translator::class, 'translator');
-        $translator->shouldReceive('getFromJson')->once()->andReturn('男');
+        $translator->shouldReceive('has')->once()->andReturn(true);
+        $translator->shouldReceive('trans')->once()->andReturn('男');
 
         $this->assertEquals('男', $this->user->present('gender'));
     }
