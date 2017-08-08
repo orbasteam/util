@@ -59,8 +59,12 @@ abstract class Presenter
     public function __($name)
     {
         $value = app('enum')->value($this->attribute($name), $name);
-        $key = ['enums', $name, $value];
-
-        return __(implode('.', $key));
+        $key = implode('.', ['enums', $name, $value]);
+        
+        if (app('translator')->has($key)) {
+            return app('translator')->trans($key);
+        }
+        
+        return $value;
     }
 }
