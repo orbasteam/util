@@ -60,11 +60,11 @@ abstract class Presenter
     {
         $value = app('enum')->value($this->attribute($name), $name);
         $key = implode('.', ['enums', $name, $value]);
-        
+
         if (app('translator')->has($key)) {
             return app('translator')->trans($key);
         }
-        
+
         return $value;
     }
 }
