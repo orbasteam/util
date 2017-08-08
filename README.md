@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/orbasteam/util.svg?branch=master)](https://travis-ci.org/orbasteam/util)
 [![StyleCI](https://styleci.io/repos/99010881/shield?branch=master)](https://styleci.io/repos/99010881)
 
-Laravel Orbas Util provides some useful method, such like `enum` and `presenter`
+Laravel Util provides some useful method, such like `enum` and `presenter`
 
 ## Installation
 
@@ -28,7 +28,6 @@ That will create a class to `app/Enums/` folder
 ### Define the enum
 
  ```php
- <?php
  namespace App\Enums;
  
  use Orbas\Util\Enum\Enumable;
@@ -49,8 +48,6 @@ That will create a class to `app/Enums/` folder
  or you can define the key
 
 ```php
-<?php
-
 namespace App\Enums;
 
 use Orbas\Util\Enum\Enumable;
@@ -89,7 +86,98 @@ Get value from key
 app('enum')->value(1, 'weekday'); // this will echo Monday  
 ```
 
-More functionality will be release in the future.
+More functionality will be released in the future.
+
+## Presenter
+
+or you can call it view presenter. Sometimes you have some logic need to be performed before you put the data. 
+
+for example
+
+```php
+{{ $user->first_name }} {{ $user->last_name }}
+{{ $user->gender == 0 ? 'female' : 'male' }}
+{{ Carbon\Carbon::parse($user->birthday->format('d/m/Y') }}
+```
+
+A presenter is a pattern that you can put the logic far from view and model. (keep model clean, and do what it should do.)
+
+### Create a presenter class
+
+`$ php artisan util:make:presenter User`
+
+That will create a class to `app/Presenters` folder
+
+### Edit your presenter logic
+
+```php
+namespace App\Presenters;
+
+use Orbas\Util\Presenter;
+
+class User extends Presenter
+{
+    public function full_name()
+    {
+        return $this->attribute('first_name') . ' ' . $this->last_name;
+    }
+    
+    public function birthday()
+    {
+        return Carbon\Carbon::parse($this->attribute('')
+    }
+}
+```
+
+### Put present trait to your model
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orbas\Util\Traits\Presenter;
+
+class User extends Model
+{
+    use Presenter;   
+}
+```
+
+### Usage
+
+```php
+$user = App\User::find(1);
+
+$user->present()->full_name;
+
+// or
+$user->present('full_name');
+```
+
+### Multi-language with Enum
+
+Presenter provides auto translation. 
+
+Put `enums.php` to `resources/lang/YOUR_LOCALE/enums.php` 
+
+```php
+// resources/lang/zh-TW/enums.php
+return [
+    'gender' => [    // enum name
+        'female' => '女',    // enum key => translation word
+        'male'   => '男'
+    ]
+];
+```
+
+Presenter will translate for you
+
+```php
+$user = App\User::first();
+$user->present('gender');
+// or
+$user->present()->gender;
+```
 
 ## License
 
