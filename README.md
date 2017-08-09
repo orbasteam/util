@@ -86,7 +86,27 @@ Get value from key
 app('enum')->value(1, 'weekday'); // this will echo Monday  
 ```
 
-More functionality will be released in the future.
+### Use Facade
+
+Add class aliases to the aliases array of `config/app.php`:
+
+```php
+  'aliases' => [
+    // ...
+      'Enum' => \Orbas\Util\Facades\Enum::class,
+    // ...
+  ],
+```
+
+then you can use it like this
+
+```php
+// equal to app('enum')->create('gender');
+Enum::create('gender');
+Enum::gender();
+```
+
+*More functionality will be released in the future.*
 
 ## Presenter
 
