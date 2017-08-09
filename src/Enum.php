@@ -49,6 +49,17 @@ class Enum
     }
 
     /**
+     * @param string $name
+     * @param array  $arguments
+     *
+     * @return Collection
+     */
+    public function __call($name, $arguments = [])
+    {
+        return $this->create($name);
+    }
+
+    /**
      * @param $name
      *
      * @return Enumable
