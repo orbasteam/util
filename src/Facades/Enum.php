@@ -5,7 +5,7 @@ namespace Orbas\Util\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Orbas\Util\Enum 
+ * @see \Orbas\Util\Enum
  */
 class Enum extends Facade
 {
