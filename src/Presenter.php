@@ -52,19 +52,35 @@ abstract class Presenter
     /**
      * translate model enum name.
      *
-     * @param string $name
+     * @param string $column
+     * @param string $enumName
+     * @param string $locale
      *
      * @return \Illuminate\Contracts\Translation\Translator|string
      */
-    public function __($name)
+    public function __($column, $enumName = null, $locale = null)
     {
-        $value = app('enum')->value($this->attribute($name), $name);
-        $key = implode('.', ['enums', $name, $value]);
+        $enumName = $enumName ?: $column;
+        
+        $value = app('enum')->value($this->attribute($column), $enumName);
+        $key = implode('.', ['enums', $column, $value]);
 
         if (app('translator')->has($key)) {
-            return app('translator')->trans($key);
+            return app('translator')->trans($key, [], $locale);
         }
 
         return $value;
+    }
+
+    /**
+     * @param string $column
+     * @param string $enumName
+     * @param string $locale
+     *
+     * @return \Illuminate\Contracts\Translation\Translator|string
+     */
+    public function enum($column, $enumName = null, $locale = null)
+    {
+        return $this->__($column, $enumName, $locale);
     }
 }

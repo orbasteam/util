@@ -44,4 +44,20 @@ class PresenterTest extends UtilTestCase
 
         $this->assertEquals('男', $this->user->present('gender'));
     }
+
+    /**
+     * @test
+     * @group Presenter
+     */
+    public function it_should_translate_enum_manual()
+    {
+        $enum = new Enum('Tests\\Stubs\\Enum');
+        $this->app->instance('enum', $enum);
+        
+        $translator = $this->initMock(Translator::class, 'translator');
+        $translator->shouldReceive('has')->once()->andReturn(true);
+        $translator->shouldReceive('trans')->once()->andReturn('男');
+
+        $this->assertEquals('男', $this->user->present()->enum('gender', 'Gender'));
+    }
 }
