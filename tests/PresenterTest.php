@@ -53,7 +53,7 @@ class PresenterTest extends UtilTestCase
     {
         $enum = new Enum('Tests\\Stubs\\Enum');
         $this->app->instance('enum', $enum);
-        
+
         $translator = $this->initMock(Translator::class, 'translator');
         $translator->shouldReceive('has')->once()->andReturn(true);
         $translator->shouldReceive('trans')->once()->andReturn('男');

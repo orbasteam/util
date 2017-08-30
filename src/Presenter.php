@@ -61,7 +61,7 @@ abstract class Presenter
     public function __($column, $enumName = null, $locale = null)
     {
         $enumName = $enumName ?: $column;
-        
+
         $value = app('enum')->value($this->attribute($column), $enumName);
         $key = implode('.', ['enums', $column, $value]);
 
