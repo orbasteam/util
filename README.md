@@ -197,6 +197,9 @@ $user = App\User::first();
 $user->present('gender');
 // or
 $user->present()->gender;
+
+//or given a enum name and locale
+$user->present()->enum('gender', 'Gender', 'zh-TW');
 ```
 
 ## License
